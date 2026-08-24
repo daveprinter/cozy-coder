@@ -207,7 +207,7 @@
       0 4px 6px -4px rgb(0 0 0 / 0.1);
   }
 
-  /* Large dashboard cards with a soft blue/purple glow */
+  /* Large dashboard cards with a soft blue glow */
   .glow-card {
     position: relative;
     background-color: var(--color-card);
