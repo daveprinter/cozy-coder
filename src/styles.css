@@ -223,23 +223,16 @@
   .glow-card::before {
     content: "";
     position: absolute;
-    inset: -1px;
+    inset: -6px;
     border-radius: inherit;
-    padding: 1px;
     background: linear-gradient(
       135deg,
-      color-mix(in oklch, var(--color-primary) 70%, transparent),
-      color-mix(in oklch, var(--color-secondary) 60%, transparent)
+      color-mix(in oklch, var(--color-primary) 55%, transparent),
+      color-mix(in oklch, var(--color-secondary) 45%, transparent)
     );
-    -webkit-mask:
-      linear-gradient(#000 0 0) content-box,
-      linear-gradient(#000 0 0);
-    mask:
-      linear-gradient(#000 0 0) content-box,
-      linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    opacity: 0.55;
+    filter: blur(18px);
+    opacity: 0.35;
+    z-index: -1;
     pointer-events: none;
   }
 
