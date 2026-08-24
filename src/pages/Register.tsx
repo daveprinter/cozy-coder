@@ -7,13 +7,14 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { ManagementPanel } from "@/components/ManagementPanel";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import { landingPathForUser } from "@/lib/roleRedirect";
 import { Building2, Eye, EyeOff } from "lucide-react";
 
 const FLOORS = ["Ground Floor", "1st Floor", "2nd Floor", "3rd Floor", "4th Floor", "5th Floor", "6th Floor"];
 
 const Register: React.FC = () => {
   const [form, setForm] = useState({
-    fullName: "", email: "", phone: "", nationalId: "",
+    fullName: "", email: "", phone: "", nationalId: "", role: "tenant",
     floor: "", doorNumber: "", password: "", confirmPassword: "",
   });
   const [showPw, setShowPw] = useState(false);
@@ -34,16 +35,18 @@ const Register: React.FC = () => {
       return;
     }
     setLoading(true);
-    const { error } = await supabase.auth.signUp({
+    const { data, error } = await supabase.auth.signUp({
       email: form.email,
       password: form.password,
       options: {
+        emailRedirectTo: `${window.location.origin}/login`,
         data: {
           full_name: form.fullName,
           phone: form.phone,
           national_id: form.nationalId,
           floor: form.floor,
           door_number: form.doorNumber,
+          role: form.role,
         },
       },
     });
@@ -57,7 +60,8 @@ const Register: React.FC = () => {
       }
     } else {
       toast({ title: "Welcome to NyumbaLink!", description: "Registration successful." });
-      navigate({ to: "/dashboard" });
+      const path = data.user ? await landingPathForUser(data.user.id) : "/dashboard";
+      navigate({ to: path });
     }
   };
 

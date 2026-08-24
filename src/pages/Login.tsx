@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { ManagementPanel } from "@/components/ManagementPanel";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import { landingPathForUser } from "@/lib/roleRedirect";
 import { Building2, Eye, EyeOff } from "lucide-react";
 
 const Login: React.FC = () => {
@@ -19,12 +20,13 @@ const Login: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    const { data, error } = await supabase.auth.signInWithPassword({ email, password });
     setLoading(false);
     if (error) {
       toast({ title: "Login failed", description: error.message, variant: "destructive" });
     } else {
-      navigate({ to: "/dashboard" });
+      const path = data.user ? await landingPathForUser(data.user.id) : "/dashboard";
+      navigate({ to: path });
     }
   };
 
