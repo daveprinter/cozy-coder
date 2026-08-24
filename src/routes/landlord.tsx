@@ -20,7 +20,7 @@ export const Route = createFileRoute("/landlord")({
     ],
   }),
   component: () => (
-    <RoleGuard allow={["landlord"] as const}>
+    <RoleGuard allow={["landlord"]}>
       <LandlordDashboardPage />
     </RoleGuard>
   ),
