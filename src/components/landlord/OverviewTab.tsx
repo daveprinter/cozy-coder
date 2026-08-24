@@ -47,8 +47,8 @@ const StatCard: React.FC<{ label: string; value: string; icon: React.ElementType
   value,
   icon: Icon,
 }) => (
-  <Card>
-    <CardContent className="p-4 flex flex-col gap-2">
+  <Card className="glow-card border-0">
+    <CardContent className="p-5 flex flex-col gap-2">
       <div className="flex items-center justify-between">
         <span className="text-sm text-muted-foreground">{label}</span>
         <Icon className="h-4 w-4 text-primary" />
@@ -64,11 +64,12 @@ const HeroStat: React.FC<{ label: string; value: string; icon: React.ElementType
   icon: Icon,
 }) => (
   <div className="flex flex-col items-center gap-1 p-3 text-center">
-    <Icon className="h-5 w-5 text-primary" />
+    <Icon className="h-5 w-5 text-secondary" />
     <span className="text-2xl md:text-3xl font-heading font-bold text-foreground">{value}</span>
     <span className="text-xs text-muted-foreground">{label}</span>
   </div>
 );
+
 
 const severityBorder: Record<string, string> = {
   critical: "border-destructive text-destructive",
