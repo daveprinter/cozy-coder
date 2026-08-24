@@ -133,7 +133,7 @@ export const OverviewTab: React.FC = () => {
         </Select>
       </div>
 
-      <Card className="glass-card">
+      <Card className="glow-card border-0">
         <CardContent className="p-4">
           <div className="grid grid-cols-2 md:grid-cols-6 divide-x divide-border">
             <HeroStat label="Occupancy Rate" value={`${occupancy.rate}%`} icon={Percent} />
@@ -146,7 +146,7 @@ export const OverviewTab: React.FC = () => {
         </CardContent>
       </Card>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
         <StatCard label="Total Properties" value={String(totalProperties)} icon={Building2} />
         <StatCard label="Buildings" value={String(totalBuildings)} icon={Home} />
         <StatCard label="Units" value={String(totalUnits)} icon={KeyRound} />
@@ -165,8 +165,8 @@ export const OverviewTab: React.FC = () => {
         <StatCard label="Collection Rate" value={`${finance.collectionRate}%`} icon={Percent} />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <Card>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <Card className="glow-card border-0">
           <CardHeader>
             <CardTitle className="font-heading text-base">Income vs Expenses</CardTitle>
           </CardHeader>
@@ -185,7 +185,7 @@ export const OverviewTab: React.FC = () => {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="glow-card border-0">
           <CardHeader>
             <CardTitle className="font-heading text-base">Occupancy</CardTitle>
           </CardHeader>
@@ -204,7 +204,7 @@ export const OverviewTab: React.FC = () => {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="glow-card border-0">
           <CardHeader>
             <CardTitle className="font-heading text-base">Net Income Trend</CardTitle>
           </CardHeader>
@@ -222,7 +222,7 @@ export const OverviewTab: React.FC = () => {
         </Card>
       </div>
 
-      <Card>
+      <Card className="glow-card border-0">
         <CardHeader>
           <CardTitle className="font-heading text-base">Action Required</CardTitle>
         </CardHeader>
@@ -239,7 +239,7 @@ export const OverviewTab: React.FC = () => {
         </CardContent>
       </Card>
 
-      <Card>
+      <Card className="glow-card border-0">
         <CardHeader>
           <CardTitle className="font-heading text-base">Property Comparison</CardTitle>
         </CardHeader>
