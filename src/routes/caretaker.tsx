@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { RoleGuard } from "@/components/RoleGuard";
 import CaretakerDashboardPage from "@/pages/CaretakerDashboard";
 
 export const Route = createFileRoute("/caretaker")({
@@ -18,5 +19,9 @@ export const Route = createFileRoute("/caretaker")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  component: CaretakerDashboardPage,
+  component: () => (
+    <RoleGuard allow={["caretaker", "landlord"] as const}>
+      <CaretakerDashboardPage />
+    </RoleGuard>
+  ),
 });
