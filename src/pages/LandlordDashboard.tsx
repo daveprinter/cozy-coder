@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "@tanstack/react-router";
+import { Link, useNavigate } from "@tanstack/react-router";
 import { useAuth } from "@/contexts/AuthContext";
 import { useApp } from "@/contexts/AppContext";
 import { Button } from "@/components/ui/button";
@@ -60,9 +60,16 @@ const LandlordDashboard: React.FC = () => {
               <Building2 className="h-6 w-6" />
               <span className="font-heading text-lg font-bold">NyumbaLink</span>
             </div>
-            <Button variant="ghost" size="icon" onClick={handleLogout} className="text-primary-foreground hover:bg-primary-foreground/10">
-              <LogOut className="h-5 w-5" />
-            </Button>
+            <div className="flex items-center gap-1">
+              <Link to="/finance">
+                <Button variant="ghost" size="sm" className="text-primary-foreground hover:bg-primary-foreground/10 gap-2">
+                  <LineChart className="h-4 w-4" /> Finance
+                </Button>
+              </Link>
+              <Button variant="ghost" size="icon" onClick={handleLogout} className="text-primary-foreground hover:bg-primary-foreground/10">
+                <LogOut className="h-5 w-5" />
+              </Button>
+            </div>
           </div>
           <h1 className="font-heading text-xl font-bold">Landlord Dashboard</h1>
           <p className="text-primary-foreground/80 text-sm">{apartmentName} — Portfolio Overview</p>
