@@ -11,6 +11,12 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { AuthProvider } from "@/contexts/AuthContext";
+import { AppProvider } from "@/contexts/AppContext";
+import { DataProvider } from "@/lib/domain/DataContext";
 
 function NotFoundComponent() {
   return (
@@ -77,19 +83,32 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "NyumbaLink — Rental Property Management Made Simple" },
+      {
+        name: "description",
+        content:
+          "NyumbaLink connects tenants, caretakers, and landlords. Track rent, report maintenance issues, and manage your rental property in one place.",
+      },
+      { name: "author", content: "NyumbaLink" },
+      { property: "og:title", content: "NyumbaLink — Rental Property Management Made Simple" },
+      {
+        property: "og:description",
+        content:
+          "NyumbaLink connects tenants, caretakers, and landlords in one simple platform.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
+      },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Playfair+Display:wght@600;700&display=swap",
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
@@ -119,8 +138,18 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <TooltipProvider>
+        <AuthProvider>
+          <AppProvider>
+            <DataProvider>
+              <Toaster />
+              <Sonner />
+              {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+              <Outlet />
+            </DataProvider>
+          </AppProvider>
+        </AuthProvider>
+      </TooltipProvider>
     </QueryClientProvider>
   );
 }
