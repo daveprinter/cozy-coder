@@ -248,7 +248,7 @@ const TenantDashboard: React.FC = () => {
               <button
                 key={a.id}
                 onClick={() => setView(a.id)}
-                className="w-full glass-card p-4 flex items-center gap-4 hover:shadow-md transition-shadow text-left"
+                className="w-full glow-card p-4 flex items-center gap-4 hover:shadow-md transition-shadow text-left"
               >
                 <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center">
                   <a.icon className="h-6 w-6 text-accent-foreground" />
@@ -266,7 +266,7 @@ const TenantDashboard: React.FC = () => {
 
             {view === "rent" && (
               <div className="space-y-4">
-                <Card className="glass-card p-5 space-y-4">
+                <Card className="glow-card border-0 p-5 space-y-4">
                   <div>
                     <p className="text-sm text-muted-foreground">Current Rent</p>
                     <p className="font-heading text-2xl font-bold text-foreground">{formatKES(lease?.rent ?? 0)}</p>
@@ -298,7 +298,7 @@ const TenantDashboard: React.FC = () => {
 
             {view === "payments" && (
               <div className="space-y-4">
-                <Card className="glass-card p-4 grid grid-cols-2 gap-3">
+                <Card className="glow-card border-0 p-4 grid grid-cols-2 gap-3">
                   <div>
                     <p className="text-xs text-muted-foreground">Total Invoiced</p>
                     <p className="font-heading font-bold text-foreground">{formatKES(financeSummary.totalInvoiced)}</p>
@@ -326,7 +326,7 @@ const TenantDashboard: React.FC = () => {
                     <button
                       key={p.id}
                       onClick={() => setViewReceipt(p)}
-                      className="w-full glass-card p-3 flex items-center justify-between text-left hover:shadow-md transition-shadow"
+                      className="w-full glow-card p-3 flex items-center justify-between text-left hover:shadow-md transition-shadow"
                     >
                       <div>
                         <p className="text-sm font-medium text-foreground">{formatKES(p.amount)}</p>
@@ -370,7 +370,7 @@ const TenantDashboard: React.FC = () => {
 
             {view === "maintenance" && (
               <div className="space-y-6">
-                <Card className="glass-card p-4 space-y-3">
+                <Card className="glow-card border-0 p-4 space-y-3">
                   <h3 className="font-heading font-semibold text-foreground">Report a maintenance issue</h3>
                   <div className="space-y-2">
                     <Label>Category</Label>
@@ -426,7 +426,7 @@ const TenantDashboard: React.FC = () => {
 
             {view === "lease" && (
               <div className="space-y-4">
-                <Card className="glass-card p-4 space-y-2">
+                <Card className="glow-card border-0 p-4 space-y-2">
                   <h3 className="font-heading font-semibold text-foreground mb-2">Lease Details</h3>
                   {lease ? (
                     <>
@@ -444,7 +444,7 @@ const TenantDashboard: React.FC = () => {
                   ) : <p className="text-muted-foreground text-sm">No active lease found.</p>}
                 </Card>
 
-                <Card className="glass-card p-4 space-y-2">
+                <Card className="glow-card border-0 p-4 space-y-2">
                   <h3 className="font-heading font-semibold text-foreground mb-2">Deposit</h3>
                   {deposit ? (
                     <>
@@ -514,7 +514,7 @@ const TenantDashboard: React.FC = () => {
 
             {view === "complaints" && (
               <div className="space-y-6">
-                <Card className="glass-card p-4 space-y-3">
+                <Card className="glow-card border-0 p-4 space-y-3">
                   <h3 className="font-heading font-semibold text-foreground">Submit a complaint</h3>
                   <div className="space-y-2">
                     <Label>Category</Label>
@@ -555,7 +555,7 @@ const TenantDashboard: React.FC = () => {
 
             {view === "profile" && (
               <div className="space-y-4">
-                <Card className="glass-card p-4 space-y-2">
+                <Card className="glow-card border-0 p-4 space-y-2">
                   <h3 className="font-heading font-semibold text-foreground mb-2">Details</h3>
                   <div className="grid grid-cols-2 gap-y-2 text-sm">
                     <span className="text-muted-foreground">Name</span><span className="text-foreground text-right">{tenant.name}</span>
@@ -574,7 +574,7 @@ const TenantDashboard: React.FC = () => {
                   </div>
                 </Card>
 
-                <Card className="glass-card p-4 space-y-3">
+                <Card className="glow-card border-0 p-4 space-y-3">
                   <div className="flex items-center justify-between">
                     <h3 className="font-heading font-semibold text-foreground">Edit Phone / Email</h3>
                     {!editingProfile && (
