@@ -101,6 +101,22 @@ const Register: React.FC = () => {
               <Input id="nationalId" value={form.nationalId} onChange={e => update("nationalId", e.target.value)} required className="mt-1" />
             </div>
 
+            <div>
+              <Label>I am a</Label>
+              <Select value={form.role} onValueChange={v => update("role", v)}>
+                <SelectTrigger className="mt-1"><SelectValue placeholder="Select role" /></SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="tenant">Tenant / Student</SelectItem>
+                  <SelectItem value="landlord">Landlord</SelectItem>
+                  <SelectItem value="caretaker">Caretaker</SelectItem>
+                </SelectContent>
+              </Select>
+              <p className="text-xs text-muted-foreground mt-1">
+                Admin access is granted by the system administrator only.
+              </p>
+            </div>
+
+
             <div className="grid grid-cols-2 gap-3">
               <div>
                 <Label>Floor</Label>
