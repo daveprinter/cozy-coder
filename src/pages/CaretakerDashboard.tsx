@@ -340,7 +340,7 @@ const CaretakerDashboard: React.FC = () => {
       <main className="p-4 space-y-4 animate-fade-in max-w-4xl mx-auto">
         {tab === "today" && (
           <div className="space-y-4">
-            <Card>
+            <Card className="glow-card border-0">
               <CardHeader><CardTitle className="font-heading">Occupancy</CardTitle></CardHeader>
               <CardContent className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
                 <div>
@@ -366,21 +366,21 @@ const CaretakerDashboard: React.FC = () => {
             </Card>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <Card>
+              <Card className="glow-card border-0">
                 <CardContent className="p-4">
                   <p className="text-xs text-muted-foreground">Today's Collections</p>
                   <p className="text-xl font-bold text-success">{formatKES(todaysTotal)}</p>
                   <p className="text-xs text-muted-foreground">{todaysPayments.length} payment(s)</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="glow-card border-0">
                 <CardContent className="p-4">
                   <p className="text-xs text-muted-foreground">Unpaid Tenants</p>
                   <p className="text-xl font-bold text-destructive">{arrearsList.length}</p>
                   <p className="text-xs text-muted-foreground">{formatKES(arrearsList.reduce((s, a) => s + a.amountOwed, 0))}</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="glow-card border-0">
                 <CardContent className="p-4">
                   <p className="text-xs text-muted-foreground">Open Tickets</p>
                   <p className="text-xl font-bold text-warning">{openTickets.length}</p>
@@ -388,7 +388,7 @@ const CaretakerDashboard: React.FC = () => {
               </Card>
             </div>
 
-            <Card>
+            <Card className="glow-card border-0">
               <CardHeader><CardTitle className="font-heading">Daily Checklist</CardTitle></CardHeader>
               <CardContent className="space-y-3">
                 {CHECKLIST_ITEMS.map((item) => (
@@ -571,7 +571,7 @@ const CaretakerDashboard: React.FC = () => {
 
         {tab === "inspections" && (
           <div className="space-y-4">
-            <Card>
+            <Card className="glow-card border-0">
               <CardHeader><CardTitle className="font-heading">New Inspection</CardTitle></CardHeader>
               <CardContent className="space-y-3">
                 <div>
@@ -633,7 +633,7 @@ const CaretakerDashboard: React.FC = () => {
 
         {tab === "meters" && (
           <div className="space-y-4">
-            <Card>
+            <Card className="glow-card border-0">
               <CardHeader><CardTitle className="font-heading">New Reading</CardTitle></CardHeader>
               <CardContent className="space-y-3">
                 <div>
@@ -673,7 +673,7 @@ const CaretakerDashboard: React.FC = () => {
                 <Button className="gradient-primary text-primary-foreground w-full" onClick={submitMeterReading}>Save Reading</Button>
               </CardContent>
             </Card>
-            <Card>
+            <Card className="glow-card border-0">
               <CardHeader><CardTitle className="font-heading text-base">Recent Readings</CardTitle></CardHeader>
               <CardContent className="space-y-2">
                 {meterReadings.slice(0, 20).map((m) => (
@@ -690,7 +690,7 @@ const CaretakerDashboard: React.FC = () => {
 
         {tab === "visitors" && (
           <div className="space-y-4">
-            <Card>
+            <Card className="glow-card border-0">
               <CardHeader><CardTitle className="font-heading">Register Visitor</CardTitle></CardHeader>
               <CardContent className="space-y-3">
                 <div>
@@ -744,7 +744,7 @@ const CaretakerDashboard: React.FC = () => {
 
         {tab === "notices" && (
           <div className="space-y-4">
-            <Card>
+            <Card className="glow-card border-0">
               <CardHeader><CardTitle className="font-heading">Post Notice</CardTitle></CardHeader>
               <CardContent className="space-y-3">
                 <div>
