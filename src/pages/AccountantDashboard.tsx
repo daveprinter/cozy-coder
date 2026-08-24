@@ -47,7 +47,7 @@ const AccountantDashboard: React.FC = () => {
         id: p.id,
         date: p.date.slice(0, 10),
         kind: "Income" as const,
-        label: `${data.getTenant(p.tenantId)?.fullName ?? "Tenant"} — ${p.method}`,
+        label: `${data.getTenant(p.tenantId)?.name ?? "Tenant"} — ${p.method}`,
         ref: p.receiptNo,
         amount: p.amount,
       })),
@@ -219,8 +219,8 @@ const AccountantDashboard: React.FC = () => {
             <TableBody>
               {arrears.slice(0, 20).map((a) => (
                 <TableRow key={a.tenant.id}>
-                  <TableCell className="font-medium">{a.tenant.fullName}</TableCell>
-                  <TableCell>{a.unit?.unitNumber ?? "—"}</TableCell>
+                  <TableCell className="font-medium">{a.tenant.name}</TableCell>
+                  <TableCell>{a.unit?.label ?? "—"}</TableCell>
                   <TableCell className="text-right text-destructive font-semibold">{money(a.amountOwed)}</TableCell>
                   <TableCell className="text-right">{a.daysOverdue}</TableCell>
                 </TableRow>

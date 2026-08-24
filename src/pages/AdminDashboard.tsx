@@ -102,12 +102,12 @@ const AdminDashboard: React.FC = () => {
         hits.push({ kind: "Property", label: p.name, detail: p.town ?? "" });
     });
     data.units.forEach((u) => {
-      if (u.unitNumber.toLowerCase().includes(q))
-        hits.push({ kind: "Unit", label: u.unitNumber, detail: u.status });
+      if (u.label.toLowerCase().includes(q))
+        hits.push({ kind: "Unit", label: u.label, detail: u.status });
     });
     data.tenants.forEach((t) => {
-      if (`${t.fullName} ${t.phone ?? ""}`.toLowerCase().includes(q))
-        hits.push({ kind: "Tenant", label: t.fullName, detail: t.phone ?? "" });
+      if (`${t.name} ${t.phone ?? ""}`.toLowerCase().includes(q))
+        hits.push({ kind: "Tenant", label: t.name, detail: t.phone ?? "" });
     });
     data.tickets.forEach((t) => {
       if (`${t.number} ${t.title}`.toLowerCase().includes(q))
